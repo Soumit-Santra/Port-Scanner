@@ -94,14 +94,14 @@ def print_banner():
         banner = f"""
     {Fore.CYAN}╔══════════════════════════════════════════════╗
     ║{Fore.YELLOW}{Style.BRIGHT}               PORT SCANNER                   {Fore.CYAN}║
-    ║{Fore.YELLOW}{Style.BRIGHT}     Created by [Your Name] © 2024          {Fore.CYAN}║
+    ║{Fore.YELLOW}{Style.BRIGHT}   Created by [Soumit Santra] © 2025          {Fore.CYAN}║
     ╚══════════════════════════════════════════════╝{Style.RESET_ALL}
     """
     else:
         banner = """
     ╔══════════════════════════════════════════════╗
-    ║               PORT SCANNER                    ║
-    ║        Created by [Your Name] © 2024         ║
+    ║               PORT SCANNER                   ║
+    ║       Created by [Soumit Santra] © 2025      ║
     ╚══════════════════════════════════════════════╝
     """
     print(banner)
