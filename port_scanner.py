@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Advanced Port Scanner
 Created by [Soumit Santra]
