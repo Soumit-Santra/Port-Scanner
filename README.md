@@ -108,4 +108,4 @@ Results include:
 
 ## License
 
-This project is open-sourced software licensed under the MIT license..
+This project is open-sourced software licensed under the MIT license.
