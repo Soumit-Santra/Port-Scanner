@@ -1,7 +1,7 @@
 """
 Advanced Port Scanner
 Created by [Soumit Santra]
-© 2025 []. All rights reserved.
+© 2025 [Soumit Santra]. All rights reserved.
 Advanced Security Tools
 A comprehensive port scanning tool with multiple scanning modes
 """
