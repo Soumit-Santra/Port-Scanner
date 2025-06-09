@@ -3,7 +3,7 @@
 *Created by [Soumit Santra] - Advanced Security Tools*  
 *© 2025 [Soumit Santra]. All rights reserved.*
 
-A feature-rich network port scanner written in Pytho that supports multiple scanning modes and protocols.
+A feature-rich network port scanner written in Python that supports multiple scanning modes and protocols.
 
 ## ⚠️ Warning
 
