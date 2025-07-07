@@ -1,111 +1,150 @@
-# Port Scanner
+# 🚀 Advanced Port Scanner v3
 
-*Created by [Soumit Santra] - Advanced Security Tools*  
-*© 2025 [Soumit Santra]. All rights reserved.*
+**Created by [Soumit Santra] — Advanced Security Tools**  
+© 2025 Soumit Santra. All rights reserved.
 
-A feature-rich network port scanner written in Python that supports multiple scanning modes and protocols.
+---
 
-## ⚠️ Warning
+A powerful, multi-threaded Python port scanner with advanced scanning modes, colored output, OS detection, and more.
 
-This port scanner is for educational and authorized testing purposes only:
+---
 
-- **Legal Compliance**: Unauthorized port scanning may be illegal in some jurisdictions
-- **Permission Required**: Always obtain explicit permission before scanning any network or system
-- **Professional Use**: For professional security testing, ensure you have proper authorization
-- **Ethical Usage**: Do not use this tool for malicious purposes or unauthorized access
-- **Liability**: The authors are not responsible for any misuse or damage caused by this tool
+## ⚠️ Legal & Ethical Notice
 
-Recommended safety measures:
-- Only scan systems you own or have permission to test
-- Check local laws and regulations regarding port scanning
-- Consider using in a controlled testing environment first
-- Document all authorized testing activities
-- Be prepared to stop scanning if requested by system owners
+> **This tool is for educational and authorized testing only!**
+>
+> - **Obtain explicit permission** before scanning any network or system.
+> - **Unauthorized port scanning may be illegal** in your jurisdiction.
+> - **The author is not responsible** for misuse or damages.
 
+**Best Practices:**
+- Only scan systems you own or have written permission to test.
+- Check local laws and regulations.
+- Use in a controlled environment when possible.
+- Document all authorized testing.
+- Stop scanning immediately if requested by system owners.
 
-## Features
+---
 
-- Multiple scanning modes:
+## ✨ Features
+
+- **Multiple Scan Modes:**
   - Quick scan (common ports)
-  - Regular scan (ports 1-1000)
-  - Intense TCP scan (all ports)
-  - UDP scan
+  - Regular scan (ports 1–1000)
+  - Intense TCP scan (all ports 1–65535)
+  - UDP scan (common UDP ports)
   - Combined TCP/UDP scan
   - No-ping scan
-  - Custom scan with configurable parameters
+  - Custom scan (choose ports, speed, protocol, and extras)
 
-- Additional capabilities:
-  - OS detection
-  - Service identification
-  - Banner grabbing
-  - Port status (open/closed/filtered)
+- **Advanced Capabilities:**
+  - OS detection (TCP/IP fingerprinting & TTL analysis)
+  - Service identification & banner grabbing
+  - Port status: open, closed, filtered
   - Ping scanning
   - Traceroute
-  - Multi-threading support
-  - Progress visualization
-  - Results export
+  - Multi-threaded for speed
+  - Colored output & progress bars (`colorama`, `tqdm`)
+  - Export results to file
+  - **Auto-installs dependencies**
 
-## Requirements
+---
 
-- Python 3.6+
-- Required packages (auto-installed):
-  - colorama
-  - tqdm
-  - scapy
+## 🛠️ Requirements
 
-## Installation
+- Python **3.6+**
+- The script will auto-install if missing:
+  - `colorama`
+  - `tqdm`
+  - `scapy`
 
-1. Clone or download the repository
-2. Navigate to the project directory
-3. Run the script:
+---
+
+## 💻 Installation
+
+### 🪟 Windows
+
+1. Clone or download the repository.
+2. Open a terminal and navigate to the project directory.
+3. Run:
+   ```bash
+   python port_scanner.py
+   ```
+   > The script will install any missing dependencies automatically.
+
+### 🐧 Linux
+
+1. Clone or download the repository.
+2. Open a terminal and navigate to the project directory.
+3. Ensure Python 3.6+ is installed:
+   ```bash
+   python3 --version
+   ```
+4. Run:
+   ```bash
+   python3 port_scanner.py
+   ```
+   > The script will install any missing dependencies automatically.
+
+**For best results (especially UDP/OS detection), run as root:**
 ```bash
-python port_scanner.py
+sudo python3 port_scanner.py
 ```
-The script will automatically install required dependencies if missing.
 
-## Usage
+---
 
-1. Run the script and choose from the following scan types:
-   1. Quick scan
-   2. Regular scan
-   3. Intense scan all TCP
-   4. Intense scan with UDP
-   5. Intense TCP + UDP scan
-   6. Intense scan no ping
-   7. Ping scan
-   8. Quick trace route
-   9. Slow comprehensive scan
-   10. OS scan
-   11. Customize scan
-   12. Exit
+## 🚦 Usage
 
-2. Enter the target IP address or hostname when prompted
+1. **Run the script** and select a scan type:
+    ```
+    1. Quick scan
+    2. Regular scan
+    3. Intense scan all TCP
+    4. Intense scan with UDP
+    5. Intense TCP + UDP scan
+    6. Intense scan no ping
+    7. Ping scan
+    8. Quick trace route
+    9. Slow comprehensive scan
+    10. OS scan
+    11. Customize scan
+    12. Exit
+    ```
+2. **Enter the target IP address or hostname** when prompted.
+3. **View results** in the terminal and optionally **save them to a file**.
 
-3. View results and optionally save them to a file
+---
 
-## Customization
+## 🛠️ Custom Scan
 
-The custom scan option (#11) allows you to configure:
+The **custom scan** option lets you choose:
 - Port range
-- Scan speed
+- Scan speed (affects timeout)
 - Protocol (TCP/UDP/both)
-- Additional features (traceroute, OS detection)
+- Extras: traceroute, OS detection
 
-## Output
+---
 
-Results include:
-- Open ports with service names and banners
-- Filtered and closed ports statistics
-- OS detection results (when available)
-- Scan duration and statistics
+## 📋 Output
 
-## Notes
+- **Open ports** with service names & banners
+- **Filtered/closed ports** statistics
+- **OS detection** results (when available)
+- **Scan duration** and statistics
 
-- Some features require root/administrator privileges
-- UDP scanning requires Scapy library
-- Scanning without permission may be illegal
-- Use responsibly and only on authorized systems
+---
 
-## License
+## 📝 Notes
 
-This project is open-sourced software licensed under the MIT license.
+- Some features (UDP scan, OS detection) require **root/administrator privileges**.
+- UDP scanning uses Scapy if available, otherwise falls back to basic UDP socket checks.
+- The script warns if not run with elevated privileges.
+- **Use responsibly and only on authorized systems.**
+
+---
+
+## 📄 License
+
+This project is open-source software licensed under the **MIT license**.
+
+---
