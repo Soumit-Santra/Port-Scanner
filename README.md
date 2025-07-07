@@ -1,4 +1,4 @@
-# 🚀  Port Scanner 
+# 🚀 Advanced Port Scanner v3
 
 **Created by [Soumit Santra] — Advanced Security Tools**  
 © 2025 Soumit Santra. All rights reserved.
@@ -6,6 +6,11 @@
 ---
 
 A powerful, multi-threaded Python port scanner with advanced scanning modes, colored output, OS detection, and more.
+
+---
+
+> **Made with Python**  
+> **Supports:** Windows 🪟 & Linux 🐧
 
 ---
 
