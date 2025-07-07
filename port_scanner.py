@@ -5,7 +5,6 @@ Created by [Soumit Santra]
 Advanced Security Tools
 A comprehensive port scanning tool with multiple scanning modes
 """
-
 import os
 import sys
 import socket
@@ -20,6 +19,7 @@ import json
 import argparse
 from tqdm import tqdm
 import ipaddress
+import ctypes
 
 # Check and install required packages if missing
 required_packages = ['colorama', 'tqdm', 'scapy']
@@ -92,18 +92,26 @@ PORT_MAP = {
 def print_banner():
     if HAS_COLORAMA:
         banner = f"""
-    {Fore.CYAN}╔══════════════════════════════════════════════╗
-    ║{Fore.YELLOW}{Style.BRIGHT}               PORT SCANNER                   {Fore.CYAN}║
-    ║{Fore.YELLOW}{Style.BRIGHT}   Created by [Soumit Santra] © 2025          {Fore.CYAN}║
-    ╚══════════════════════════════════════════════╝{Style.RESET_ALL}
-    """
+{Fore.MAGENTA}{Style.BRIGHT}  ██████╗  ██████╗ ██████╗ ████████╗    ███████╗ ██████╗ █████╗ ███╗   ██╗███╗   ██╗███████╗██████╗    
+{Fore.MAGENTA}{Style.BRIGHT}  ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝    ██╔════╝██╔════╝██╔══██╗████╗  ██║████╗  ██║██╔════╝██╔══██╗   
+{Fore.MAGENTA}{Style.BRIGHT}  ██████╔╝██║   ██║██████╔╝   ██║       ███████╗██║     ███████║██╔██╗ ██║██╔██╗ ██║█████╗  ██████╔╝   
+{Fore.MAGENTA}{Style.BRIGHT}  ██╔═══╝ ██║   ██║██╔══██╗   ██║       ╚════██║██║     ██╔══██║██║╚██╗██║██║╚██╗██║██╔══╝  ██╔══██╗   
+{Fore.MAGENTA}{Style.BRIGHT}  ██║     ╚██████╔╝██║  ██║   ██║       ███████║╚██████╗██║  ██║██║ ╚████║██║ ╚████║███████╗██║  ██║   
+{Fore.MAGENTA}{Style.BRIGHT}  ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝       ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝   
+
+"""
     else:
         banner = """
-    ╔══════════════════════════════════════════════╗
-    ║               PORT SCANNER                   ║
-    ║       Created by [Soumit Santra] © 2025      ║
-    ╚══════════════════════════════════════════════╝
-    """
+
+ ██████╗  ██████╗ ██████╗ ████████╗    ███████╗ ██████╗ █████╗ ███╗   ██╗███╗   ██╗███████╗██████╗    
+ ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝    ██╔════╝██╔════╝██╔══██╗████╗  ██║████╗  ██║██╔════╝██╔══██╗   
+ ██████╔╝██║   ██║██████╔╝   ██║       ███████╗██║     ███████║██╔██╗ ██║██╔██╗ ██║█████╗  ██████╔╝   
+ ██╔═══╝ ██║   ██║██╔══██╗   ██║       ╚════██║██║     ██╔══██║██║╚██╗██║██║╚██╗██║██╔══╝  ██╔══██╗   
+ ██║     ╚██████╔╝██║  ██║   ██║       ███████║╚██████╗██║  ██║██║ ╚████║██║ ╚████║███████╗██║  ██║   
+ ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝       ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝   
+
+
+"""
     print(banner)
 
 def validate_ip(ip):
@@ -231,15 +239,37 @@ def thread_scan(host, ports, protocol, timeout, pbar=None):
     for t in threads:
         t.join()
 
+def get_elevated_privileges():
+    if platform.system().lower() == "windows":
+        try:
+            # Check if script has admin rights on Windows
+            return ctypes.windll.shell32.IsUserAnAdmin()
+        except:
+            return False
+    else:
+        # Check if script has root privileges on Unix/Linux
+        return os.geteuid() == 0
+
+def check_permissions():
+    print(f"{Fore.CYAN}Checking permissions...{Style.RESET_ALL}")
+    if not get_elevated_privileges():
+        print(f"{Fore.YELLOW}Warning: This script may work better with elevated privileges.")
+        print(f"On Windows: Run as Administrator")
+        print(f"On Linux: Run with sudo{Style.RESET_ALL}")
+        print(f"Author: Soumit Santra")
+        time.sleep(2)
+
 def ping_host(host):
     print(f"{Fore.CYAN}Pinging {host} to check if it's online...{Style.RESET_ALL}")
     
-    param = "-n" if platform.system().lower() == "windows" else "-c"
-    command = ["ping", param, "1", host]
-    
     try:
+        if platform.system().lower() == "windows":
+            command = ["ping", "-n", "1", "-w", "1000", host]
+        else:
+            command = ["ping", "-c", "1", "-W", "1", host]
+        
         output = subprocess.check_output(command, stderr=subprocess.STDOUT, universal_newlines=True)
-        if "TTL=" in output or "ttl=" in output:
+        if ("TTL=" in output) or ("ttl=" in output):
             print(f"{Fore.GREEN}Host is up!{Style.RESET_ALL}")
             return True
         else:
@@ -612,6 +642,14 @@ def main():
     global HOST
     
     print_banner()
+    check_permissions()  # Add permission check at startup
+
+    # Set socket timeout based on platform
+    if platform.system().lower() == "windows":
+        socket.setdefaulttimeout(DEFAULT_TIMEOUT)
+    else:
+        # Linux/Unix systems might need a slightly longer timeout
+        socket.setdefaulttimeout(DEFAULT_TIMEOUT * 1.5)
 
     while True:
         print("=" * 60)
@@ -691,3 +729,9 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print(f"\n{Fore.CYAN}Program interrupted. Exiting...{Style.RESET_ALL}")
         sys.exit(0)
+    except PermissionError:
+        print(f"{Fore.RED}Permission denied. Try running with elevated privileges.")
+        print(f"Windows: Run as Administrator")
+        print(f"Linux: Run with sudo{Style.RESET_ALL}")
+        print(f"Author: Soumit Santra")
+        sys.exit(1)
