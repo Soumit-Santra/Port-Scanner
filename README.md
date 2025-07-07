@@ -9,11 +9,6 @@ A powerful, multi-threaded Python port scanner with advanced scanning modes, col
 
 ---
 
-> **Made with Python**  
-> **Supports:** Windows 🪟 & Linux 🐧
-
----
-
 ## ⚠️ Legal & Ethical Notice
 
 > **This tool is for educational and authorized testing only!**
