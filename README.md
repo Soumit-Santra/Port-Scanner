@@ -1,4 +1,4 @@
-# 🚀 Advanced Port Scanner v3
+# 🚀 Port Scanner 
 
 **Created by [Soumit Santra] — Advanced Security Tools**  
 © 2025 Soumit Santra. All rights reserved.
