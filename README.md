@@ -1,5 +1,10 @@
 # 🚀 Port Scanner 
 
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Platform](https://img.shields.io/badge/Platform-Windows-blue)
+![Platform](https://img.shields.io/badge/Platform-Linux-green)
+![Security](https://img.shields.io/badge/Security-Authorized%20Testing%20Only-red)
+
 **Created by [Soumit Santra] — Advanced Security Tools**  
 © 2025 Soumit Santra. All rights reserved.
 
@@ -110,7 +115,9 @@ sudo python3 port_scanner.py
     11. Customize scan
     12. Exit
     ```
+
 2. **Enter the target IP address or hostname** when prompted.
+
 3. **View results** in the terminal and optionally **save them to a file**.
 
 ---
@@ -148,3 +155,18 @@ The **custom scan** option lets you choose:
 This project is open-source software licensed under the **MIT license**.
 
 ---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+## 📧 Contact
+
+**Soumit Santra**  
+For questions, suggestions, or collaboration opportunities.
+
+---
+
+*Remember: With great power comes great responsibility. Use this tool ethically and legally.*
