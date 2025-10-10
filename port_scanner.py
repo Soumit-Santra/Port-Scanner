@@ -1,8 +1,10 @@
 """
-Advanced Port Scanner
+Port Scanner
+===========================================
 Created by [Soumit Santra]
 © 2025 [Soumit Santra]. All rights reserved.
-Advanced Security Tools
+==============================================
+Security Tools
 A comprehensive port scanning tool with multiple scanning modes
 """
 import os
@@ -735,3 +737,4 @@ if __name__ == "__main__":
         print(f"Linux: Run with sudo{Style.RESET_ALL}")
         print(f"Author: Soumit Santra")
         sys.exit(1)
+
