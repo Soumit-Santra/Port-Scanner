@@ -1,11 +1,15 @@
 """
 Port Scanner
-===========================================
-Created by [Soumit Santra]
-© 2025 [Soumit Santra]. All rights reserved.
-==============================================
-Security Tools
-A comprehensive port scanning tool with multiple scanning modes
+========================================================================
+
+Copyright (c) 2025 [Soumit Santra]
+All rights reserved.
+
+===================================================================
+Author: [Soumit Santra]
+Version: 1.0
+Created: 2025
+Last Modified: 2025
 """
 import os
 import sys
@@ -737,4 +741,5 @@ if __name__ == "__main__":
         print(f"Linux: Run with sudo{Style.RESET_ALL}")
         print(f"Author: Soumit Santra")
         sys.exit(1)
+
 
