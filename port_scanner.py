@@ -2,14 +2,13 @@
 Port Scanner
 ========================================================================
 
-Copyright (c) 2025 [Soumit Santra]
+Copyright (c) 2026 [Soumit Santra]
 All rights reserved.
 
 ===================================================================
 Author: [Soumit Santra]
-Version: 1.0
 Created: 2025
-Last Modified: 2025
+Last Modified: 2026
 """
 import os
 import sys
