@@ -6,7 +6,7 @@
 ![Security](https://img.shields.io/badge/Security-Authorized%20Testing%20Only-red)
 
 **Created by [Soumit Santra] — Advanced Security Tools**  
-© 2025 Soumit Santra. All rights reserved.
+© 2026 Soumit Santra. All rights reserved.
 
 ---
 
