@@ -169,4 +169,4 @@ For questions, suggestions, or collaboration opportunities.
 
 ---
 
-*Remember: With great power comes great responsibility. Use this tool ethically and legally.*
+*With great power comes great responsibility. Use this tool ethically and legally.*
